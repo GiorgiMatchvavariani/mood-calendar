@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Emoji Mood Calendar</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Emoji Mood Calendar</h1>
+
+    <!-- Cloud sync toolbar -->
+    <div class="cloud-bar">
+      <button id="setTokenBtn">🔐 Set GitHub Token</button>
+      <button id="clearTokenBtn">🚫 Clear Token</button>
+      <button id="saveCloudBtn">☁️ Save to Cloud</button>
+      <span id="cloudStatus">Cloud: Not connected</span>
+    </div>
+
+    <!-- Date Selector -->
+    <div class="calendar-header">
+      <button id="prevMonth">←</button>
+      <select id="monthSelect"></select>
+      <select id="yearSelect"></select>
+      <button id="nextMonth">→</button>
+    </div>
+
+    <h2 id="monthYear"></h2>
+
+    <!-- Legend -->
+    <div class="legend">
+      <strong>Legend:</strong>
+      <span>😄 Great</span>
+      <span>🙂 Good</span>
+      <span>😐 Meh</span>
+      <span>😕 Bad</span>
+      <span>😠 Terrible</span>
+    </div>
+
+    <!-- Calendar Grid -->
+    <div class="day-labels">
+      <div>Sun</div><div>Mon</div><div>Tue</div>
+      <div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+    </div>
+    <div id="calendar"></div>
+  </div>
+
+  <!-- Emoji Picker Modal -->
+  <div id="emojiModal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Select or Remove Mood</h3>
+      <div class="emoji-options">
+        <span data-emoji="😄">😄</span>
+        <span data-emoji="🙂">🙂</span>
+        <span data-emoji="😐">😐</span>
+        <span data-emoji="😕">😕</span>
+        <span data-emoji="😠">😠</span>
+        <span class="remove" data-emoji="">❌ Remove</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
