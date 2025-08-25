@@ -13,7 +13,7 @@ const saveCloudBtn = document.getElementById("saveCloudBtn");
 const cloudStatus = document.getElementById("cloudStatus");
 
 // ---------- Config ----------
-const GITHUB_USER = "YOUR_USERNAME_HERE";
+const GITHUB_USER = "GiorgiMatchvavariani";
 const REPO = "mood-calendar";
 const BRANCH = "main";
 const FILE_PATH = "moods.json";
