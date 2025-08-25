@@ -1,0 +1,66 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
+
+.container { max-width: 800px; margin: 0 auto; }
+
+.cloud-bar {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+#cloudStatus { font-size: 14px; opacity: 0.8; }
+
+.calendar-header {
+  display: flex; align-items: center; justify-content: center;
+  gap: 10px; flex-wrap: wrap;
+}
+
+.calendar-header select { padding: 5px; font-size: 16px; }
+
+#monthYear { margin-top: 10px; }
+
+.legend { margin-top: 10px; font-size: 16px; }
+.legend span { margin: 0 8px; }
+
+.day-labels, #calendar {
+  display: grid; grid-template-columns: repeat(7, 1fr);
+  gap: 5px; margin-top: 10px;
+}
+
+.day-labels div { font-weight: bold; }
+
+.day {
+  background: white; border: 1px solid #ccc; padding: 20px;
+  min-height: 60px; position: relative; cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.day:hover { opacity: 0.9; }
+
+.day .emoji {
+  position: absolute; bottom: 5px; right: 5px; font-size: 20px;
+}
+
+.today { border: 2px solid #4CAF50; background-color: #e0ffe0 !important; }
+
+.modal {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center;
+}
+.modal.hidden { display: none; }
+
+.modal-content {
+  background: white; padding: 20px 30px; border-radius: 8px; text-align: center;
+}
+
+.emoji-options span { font-size: 32px; margin: 10px; cursor: pointer; }
+.emoji-options .remove { font-size: 24px; color: red; }
