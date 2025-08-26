@@ -124,10 +124,10 @@ saveBtn.addEventListener("click", async () => {
   alert("✅ Mood data saved locally. Uploading to GitHub...");
 
   // 🔑 GitHub setup (replace with your repo info!)
-  const GITHUB_USERNAME = "GiorgiMatchvavariani";
+  const GITHUB_USERNAME = "YOUR_USERNAME";
   const REPO = "emoji-mood-calendar";
   const FILE_PATH = "moods.json";
-  const TOKEN = ".github/workflows/update-moods.yml"; // ⚠️ never share this publicly!
+  const TOKEN = "YOUR_GITHUB_PAT"; // ⚠️ never share this publicly!
 
   const content = btoa(JSON.stringify(moodData, null, 2)); // encode to base64
 
