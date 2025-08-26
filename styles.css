@@ -1,55 +1,125 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Arial, sans-serif;
   text-align: center;
-  background: #f5f5f5;
+  background: linear-gradient(135deg, #e0e7ff, #e9d5ff);
   color: #333;
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #calendar {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 5px;
+  gap: 8px;
+  max-width: 600px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   margin: 20px auto;
-  max-width: 420px;
 }
 
 .day {
-  background: white;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  padding: 10px;
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  padding: 15px;
   height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+  font-size: 1.2rem;
+}
+
+.day:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .day.selected {
-  border: 2px solid #007BFF;
+  border: 2px solid #7c3aed;
+  background: rgba(124, 58, 237, 0.2);
 }
 
+.day.today {
+  border: 2px solid #10b981;
+  background: rgba(16, 185, 129, 0.2);
+}
+
+.mood-happy { background: #fefcbf; }
+.mood-neutral { background: #bfdbfe; }
+.mood-sad { background: #fecaca; }
+.mood-angry { background: #fed7aa; }
+.mood-love { background: #f9a8d4; }
+
 #mood-picker {
-  margin: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 15px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
 }
 
 .emoji {
-  font-size: 24px;
+  font-size: 2rem;
   cursor: pointer;
-  margin: 0 5px;
+  padding: 10px;
+  border-radius: 50%;
+  transition: transform 0.2s;
 }
 
-button {
-  margin-top: 10px;
-  padding: 10px 20px;
-  font-size: 16px;
+.emoji:hover {
+  transform: scale(1.2);
+}
+
+#month-selector, #comment-section {
+  margin: 20px 0;
+}
+
+#comment {
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  width: 300px;
+  background: rgba(255, 255, 255, 0.3);
+  color: #333;
+}
+
+select, button {
+  padding: 12px 20px;
+  font-size: 1rem;
   border: none;
-  background: #007BFF;
+  border-radius: 8px;
+  background: #7c3aed;
   color: white;
-  border-radius: 6px;
   cursor: pointer;
+  transition: background 0.2s;
+  margin: 0 10px;
 }
 
-button:hover {
-  background: #0056b3;
+select:hover, button:hover {
+  background: #6d28d9;
+}
+
+#feedback {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #4b5563;
 }
