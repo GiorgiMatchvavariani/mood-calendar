@@ -1,26 +1,28 @@
 name: Update Moods JSON
 
 on:
-  workflow_dispatch:    # allows manual runs
-  repository_dispatch:  # allows external JS to trigger it
+  repository_dispatch:
+    types: [update-moods]
 
 jobs:
   update:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Update moods.json
+      - name: Write moods.json
         run: |
           echo '${{ github.event.client_payload.data }}' > moods.json
 
-      - name: Commit changes
+      - name: Commit and push changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add moods.json
-          git commit -m "Update moods.json"
+          git commit -m "Update moods.json via GitHub Action" || echo "No changes to commit"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+
