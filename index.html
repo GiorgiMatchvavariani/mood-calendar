@@ -2,23 +2,48 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mood Calendar</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>😊 Mood Calendar</h1>
+  <h1>🌈 Mood Calendar</h1>
+
+  <div id="month-selector">
+    <select id="month">
+      <option value="0">January</option>
+      <option value="1">February</option>
+      <option value="2">March</option>
+      <option value="3">April</option>
+      <option value="4">May</option>
+      <option value="5">June</option>
+      <option value="6">July</option>
+      <option value="7">August</option>
+      <option value="8">September</option>
+      <option value="9">October</option>
+      <option value="10">November</option>
+      <option value="11">December</option>
+    </select>
+    <select id="year"></select>
+    <button onclick="updateCalendar()">Update</button>
+  </div>
 
   <div id="calendar"></div>
 
   <div id="mood-picker">
-    <span class="emoji" data-emoji="😀">😀</span>
-    <span class="emoji" data-emoji="😐">😐</span>
-    <span class="emoji" data-emoji="😢">😢</span>
-    <span class="emoji" data-emoji="😡">😡</span>
-    <span class="emoji" data-emoji="😍">😍</span>
+    <span class="emoji" data-emoji="😀" data-mood="happy">😀</span>
+    <span class="emoji" data-emoji="😐" data-mood="neutral">😐</span>
+    <span class="emoji" data-emoji="😢" data-mood="sad">😢</span>
+    <span class="emoji" data-emoji="😡" data-mood="angry">😡</span>
+    <span class="emoji" data-emoji="😍" data-mood="love">😍</span>
   </div>
 
-  <button id="saveBtn">💾 Save</button>
+  <div id="comment-section">
+    <input type="text" id="comment" placeholder="Add a comment for this day..." maxlength="100">
+  </div>
+
+  <button id="saveBtn">💾 Save Mood</button>
+  <div id="feedback"></div>
 
   <script src="script.js"></script>
 </body>
