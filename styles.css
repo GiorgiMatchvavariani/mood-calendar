@@ -1,8 +1,8 @@
 body {
-  font-family: 'Segoe UI', Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
-  background: linear-gradient(135deg, #e0e7ff, #e9d5ff);
-  color: #333;
+  background: linear-gradient(135deg, #d4fc79, #96e6a1);
+  color: #2c3e50;
   margin: 0;
   padding: 20px;
   min-height: 100vh;
@@ -12,9 +12,40 @@ body {
 }
 
 h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+  font-size: 2.8rem;
+  margin-bottom: 30px;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#month-selector {
+  margin-bottom: 20px;
+}
+
+select, button {
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  background: #4CAF50;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.1s;
+  margin: 0 5px;
+}
+
+select:hover, button:hover {
+  background: #388E3C;
+  transform: scale(1.02);
+}
+
+.calendar-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  max-width: 600px;
+  margin: 0 auto 10px;
+  font-weight: bold;
+  color: #34495e;
 }
 
 #calendar {
@@ -22,17 +53,16 @@ h1 {
   grid-template-columns: repeat(7, 1fr);
   gap: 8px;
   max-width: 600px;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.8);
   border-radius: 16px;
   padding: 20px;
-  backdrop-filter: blur(10px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  margin: 20px auto;
+  margin: 0 auto 20px;
 }
 
 .day {
-  background: rgba(255, 255, 255, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: white;
+  border: 1px solid #ddd;
   border-radius: 8px;
   padding: 15px;
   height: 60px;
@@ -40,86 +70,96 @@ h1 {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: transform 0.2s, background 0.2s;
+  transition: all 0.2s;
   font-size: 1.2rem;
+  position: relative;
+}
+
+.day.empty {
+  background: transparent;
+  border: none;
+  cursor: default;
 }
 
 .day:hover {
-  transform: scale(1.05);
-  background: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .day.selected {
-  border: 2px solid #7c3aed;
-  background: rgba(124, 58, 237, 0.2);
+  border: 2px solid #2196F3;
+  background: #e3f2fd;
 }
 
 .day.today {
-  border: 2px solid #10b981;
-  background: rgba(16, 185, 129, 0.2);
+  border: 2px solid #FF5722;
+  background: #ffebee;
+  font-weight: bold;
 }
 
-.mood-happy { background: #fefcbf; }
-.mood-neutral { background: #bfdbfe; }
-.mood-sad { background: #fecaca; }
-.mood-angry { background: #fed7aa; }
-.mood-love { background: #f9a8d4; }
+.mood-happy { background: #FFF59D; }
+.mood-neutral { background: #BBDEFB; }
+.mood-sad { background: #EF9A9A; }
+.mood-angry { background: #FFAB91; }
+.mood-love { background: #F48FB1; }
 
 #mood-picker {
   display: flex;
   justify-content: center;
-  gap: 15px;
+  align-items: center;
+  gap: 10px;
   margin: 20px 0;
-  background: rgba(255, 255, 255, 0.2);
-  padding: 15px;
-  border-radius: 12px;
-  backdrop-filter: blur(10px);
+  flex-wrap: wrap;
+}
+
+#mood-picker h3 {
+  margin: 0 10px 0 0;
+  font-size: 1.2rem;
 }
 
 .emoji {
-  font-size: 2rem;
+  font-size: 1.5rem;
   cursor: pointer;
-  padding: 10px;
-  border-radius: 50%;
+  padding: 10px 15px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.5);
   transition: transform 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .emoji:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
-#month-selector, #comment-section {
+#comment-section {
   margin: 20px 0;
 }
 
 #comment {
   padding: 12px;
-  font-size: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  width: 80%;
+  max-width: 400px;
+  border: 1px solid #ddd;
   border-radius: 8px;
-  width: 300px;
-  background: rgba(255, 255, 255, 0.3);
-  color: #333;
-}
-
-select, button {
-  padding: 12px 20px;
   font-size: 1rem;
-  border: none;
-  border-radius: 8px;
-  background: #7c3aed;
-  color: white;
-  cursor: pointer;
-  transition: background 0.2s;
-  margin: 0 10px;
-}
-
-select:hover, button:hover {
-  background: #6d28d9;
 }
 
 #feedback {
-  margin-top: 10px;
-  font-size: 0.9rem;
-  color: #4b5563;
+  margin-top: 15px;
+  font-size: 1rem;
+  color: #555;
+}
+
+@media (max-width: 600px) {
+  #calendar {
+    max-width: 100%;
+    padding: 10px;
+  }
+  .day {
+    padding: 10px;
+    height: 40px;
+    font-size: 1rem;
+  }
 }
