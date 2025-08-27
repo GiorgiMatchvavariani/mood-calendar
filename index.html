@@ -25,24 +25,37 @@
       <option value="11">December</option>
     </select>
     <select id="year"></select>
-    <button onclick="updateCalendar()">Update</button>
+    <button onclick="updateCalendar()">Go</button>
+  </div>
+
+  <div id="calendar-header" class="calendar-header">
+    <div>Sun</div>
+    <div>Mon</div>
+    <div>Tue</div>
+    <div>Wed</div>
+    <div>Thu</div>
+    <div>Fri</div>
+    <div>Sat</div>
   </div>
 
   <div id="calendar"></div>
 
   <div id="mood-picker">
-    <span class="emoji" data-emoji="😀" data-mood="happy">😀</span>
-    <span class="emoji" data-emoji="😐" data-mood="neutral">😐</span>
-    <span class="emoji" data-emoji="😢" data-mood="sad">😢</span>
-    <span class="emoji" data-emoji="😡" data-mood="angry">😡</span>
-    <span class="emoji" data-emoji="😍" data-mood="love">😍</span>
+    <h3>Select Mood:</h3>
+    <span class="emoji" data-emoji="😀" data-mood="happy">😀 Happy</span>
+    <span class="emoji" data-emoji="😐" data-mood="neutral">😐 Neutral</span>
+    <span class="emoji" data-emoji="😢" data-mood="sad">😢 Sad</span>
+    <span class="emoji" data-emoji="😡" data-mood="angry">😡 Angry</span>
+    <span class="emoji" data-emoji="😍" data-mood="love">😍 Love</span>
   </div>
 
   <div id="comment-section">
     <input type="text" id="comment" placeholder="Add a comment for this day..." maxlength="100">
   </div>
 
-  <button id="saveBtn">💾 Save Mood</button>
+  <button id="saveBtn">💾 Save Changes</button>
+  <button id="downloadBtn">📥 Download moods.json</button>
+  <button id="clearDataBtn">🗑️ Clear All Data</button>
   <div id="feedback"></div>
 
   <script src="script.js"></script>
